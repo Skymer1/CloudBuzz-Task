@@ -1,0 +1,19 @@
+Important! Please Confirm your Email Subscription for the AWS SNS so you'd be able to recive the result to you email.
+As requested, confirmation was sent to - eranz@cloudbuzz.co.il
+
+Step 1: Go to the Postman website - https://www.postman.com/
+
+Step 2: Create a new HTTP Request.
+
+Step 3: Paste the API endpoint - https://p2zw1t14ld.execute-api.eu-central-1.amazonaws.com/prod/buzzr into the empty bar and change the type to "POST".
+
+Step 4: Go to the "Body" tab and select 'raw'.
+Insert parameters using JSON format inside the block:
+Example:
+{
+    "num1":10,
+    "num2":15
+}
+Note: 'You can use any numbers you want'.
+
+Step 5: Press the "Send" button on the right and the result will be printed and will also be sent via email.
