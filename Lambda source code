@@ -1,0 +1,22 @@
+import json
+import boto3
+
+def sum(number1,number2):
+    res = number1+number2
+    return str(res)
+
+def lambda_handler(event, context):
+    
+    if not 'num1' in event or not 'num2' in event :
+        return {
+            'body': json.dumps('Error: Please specify all parameters (number1 and number2).')
+        }
+    res=sum(event['num1'],event['num2'])
+    client = boto3.client('sns')
+    snsArn = 'arn:aws:sns:eu-central-1:233896446314:CloudBuzzSNS'
+    message = "Your result is " + res
+    response =client.publish(TopicArn = snsArn,Message = message ,Subject='Sum of Numbers')
+    
+    return {
+        'body': json.dumps ( 'Your result is  '+ res )
+    }
